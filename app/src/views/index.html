@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LogoIpsum</title>
+</head>
+<body>
+	<section class="sidebar">
+		<div class="sidebar__brand">
+			<span class="brand__left">Logo</span>
+			<span class="brand__right">Ipsum</span>
+		</div>
+		<div class="sidebar__search">
+			<input 
+				type="text" class="search__input" 
+				name="" id="" placeholder="Search...">
+			<button class="search__btn">
+				<span class="btn_glyph"></span>
+			</button>
+		</div>
+		<div class="sidebar__categories">
+			<ul>
+				<li class="categories__ctg-ext">
+					<a href="#">
+						<img src="#" alt="#" class="ctg__img">
+						<span class="ctg__title">Administration</span>
+					</a>
+				</li>
+				<li class="categories__ctg-ext">
+					<a href="#">
+						<img src="#" alt="#" class="ctg__img">
+						<span class="ctg__title">Content Management</span>
+					</a>
+				</li>
+				<li class="categories__ctg-ext">
+					<a href="#">
+						<img src="#" alt="#" class="ctg__img">
+						<span class="ctg__title">Forms</span>
+					</a>
+				</li>
+				<li class="categories__ctg">
+					<a href="#">
+						<img src="#" alt="#" class="ctg__img">
+						<span class="ctg__title">Weekly Schedule</span>
+					</a>
+				</li>
+				<li class="categories__ctg">
+					<a href="#">
+						<img src="#" alt="#" class="ctg__img">
+						<span class="ctg__title">To Do List</span>
+					</a>
+				</li>
+				<li class="categories__ctg">
+					<a href="#">
+						<img src="#" alt="#" class="ctg__img">
+						<span class="ctg__title">Patients</span>
+					</a>
+				</li>
+				<li class="categories__ctg active">
+					<a href="#">
+						<img src="#" alt="#" class="ctg__img">
+						<span class="ctg__title">Messages</span>
+						<span class="ctg__messages">27</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="dashboard">
+		<nav class="dashboard__nav">
+			<div class="nav__sidebar-btn">
+				<span class="sidebar-btn-bar"></span>
+				<span class="sidebar-btn-bar"></span>
+				<span class="sidebar-btn-bar"></span>
+			</div>
+			<div class="nav__quicksettings">
+				<ul class="quicksettings__list">
+					<li class="list__language">
+						<span>EN</span>
+					</li>
+					<li class="list__messages">
+						<span class="messages__icon"></span>
+						<span class="messages__number">27</span>
+					</li>
+					<li class="list__user">
+						<span class="user__name">Demo Admin</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="dashboard__location">
+			<span class="location__node">Home</span>
+			<span class="location__node active">Messages</span>
+		</div>
+		<div class="dashboard__ctg-content">
+			<div class="content__title">
+				<span class="title__icon"></span>
+				<h1>Messages</h1>
+			</div>
+			<div class="content__container">
+				<div class="container__name">
+					<img src="#" alt="#" class="name__photo">
+					<h2>Victor Brigs</h2>
+				</div>
+				<div class="container__settings">
+					<div class="settings__group">
+						<label for="settings__range">Date Range:</label>
+						<select name="dateRange" id="settings__range">
+							<option value="all">All</option>
+							<option value="30">Last 30 days</option>
+							<option value="15" selected="selected">
+								Last 15 days
+							</option>
+							<option value="10">Last 10 days</option>
+							<option value="5">Last 5 days</option>
+							<option value="1">Today</option>
+						</select>
+					</div>
+					<div class="settings__group">
+						<label for="settings__patient">Patient Alert:</label>
+						<select name="patientAlert" id="settings__patient">
+							<option value="all" selected="selected">
+								All
+							</option>
+							<option value="on">Show</option>
+							<option value="off">Hide</option>
+						</select>
+					</div>
+					<div class="settings__group">
+						<label for="settings__nurse">Nurse Alert:</label>
+						<select name="nurseAlert" id="settings__nurse">
+							<option value="all" selected="selected">
+								All
+							</option>
+							<option value="on">Show</option>
+							<option value="off">Hide</option>
+						</select>
+					</div>
+				</div>
+				<ul class="container__messages">
+					<li class="messages__message">
+						<strong class="message__name">Victor Briggs</strong>
+						<span class="message__date">08/08/14 05:00 PM</span>
+						<p class="message__text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit.Proin sed metus fells. 
+							Mauris consequat aliquet sollicitudin.
+							<span class="text__attachment">
+								<span class="attachment__icon"></span>
+								<a href="#">erat-pellentesque-dignissim.pdf</a>
+							</span>
+						</p>
+					</li>
+					<li class="messages__message">
+						<strong class="message__name">Victor Briggs</strong>
+						<span class="message__date">08/08/14 06:15 PM</span>
+						<p class="message__text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi perspiciatis itaque, distinctio doloremque dolor magni quam neque rem quidem iste rerum id iure, enim facere culpa incidunt doloribus ex hic.
+						</p>
+					</li>
+					<li class="messages__message">
+						<strong class="message__name">Me</strong>
+						<span class="message__date">08/08/14 06:15 PM</span>
+						<p class="message__text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nemo nulla molestias cupiditate sed, itaque dolore quasi fugiat aliquam quod. Recusandae perferendis aliquam illo temporibus alias magnam rem, consequuntur, odio.
+						</p>
+					</li>
+				</ul>
+				<div class="container__compose">
+					<textarea name="" id="" cols="30" rows="10" placeholder="Type a message..."></textarea>
+					<button class="compose__attach-btn">
+						<span class="attach__glyph"></span>
+						Attach
+					</button>
+					<ul class="compose__attachments">
+						<li>
+							<a href="#">lorem_shmipsum.pdf</a>
+							<span class="attachments__delete"></span>
+						</li>
+					</ul>
+					<button class="compose__send-btn">Send</button>
+				</div>
+			</div>
+		</div>
+		<div class="dashboard__contacts">
+			<div class="contacts__search">
+				<span class="search__icon"></span>
+				<input 
+					type="text" name="" id="" 
+					placeholder="Search..." class="search__input">
+				<button class="search__btn">
+					<span class="btn__glyph"></span>
+				</button>
+			</div>
+			<ul class="contacts__list">
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Yolanda Aguilar</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact active">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Victor Briggs</span>
+					<span class="contact__message">12</span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Kirestin Dalton</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Kirestin Dalton</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Idona Brooks</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Clarke Stark</span>
+					<span class="contact__message">12</span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Kirestin Dalton</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Idona Brooks</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Joy Medina</span>
+					<span class="contact__message">12</span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Clarke Stark</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Lizzie Liz</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Hayes Chavez</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">Alex Chelombitko</span>
+					<span class="contact__message"></span>
+				</li>
+				<li class="list__contact">
+					<img src="#" alt="#" class="contact__photo">
+					<span class="contact__name">My Freedom</span>
+					<span class="contact__message"></span>
+				</li>
+			</ul>
+			<ul class="contacts__ctg">
+				<li class="active">
+					<span class="ctg__icon"></span>
+					<span class="ctg__title">MD/RN</span>
+				</li>
+				<li>
+					<span class="ctg__icon"></span>
+					<span class="ctg__title">Staff</span>
+				</li>
+				<li>
+					<span class="ctg__icon"></span>
+					<span class="ctg__title">Contacts</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+</html>
