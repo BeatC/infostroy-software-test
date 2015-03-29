@@ -33,19 +33,26 @@ gulp.task('images', function () {
 		.pipe(livereload(server));
 });
 
-gulp.task('lr-server', function() {  
+gulp.task('lr-server', function () {  
     server.listen(35729, function(err) {
         if(err) {
         	return console.log(err);
         }
     });
-})
+});
+
+gulp.task('fonts', function () {
+	gulp.src('./app/src/fonts/*.*')
+		.pipe(gulp.dest('./app/dist/fonts'))
+		.pipe(livereload(server));
+});
 
 gulp.task('watch', function () {
 	gulp.watch('./app/src/styles/*.scss', ['styles']);
 	gulp.watch('./app/src/views/*.html', ['views']);
 	gulp.watch('./app/src/js/*.js', ['js']);
-	gulp.watch('./app/src/img/**/*.*', ['images']);
+	gulp.watch('./app/src/img/*.*', ['images']);
+	gulp.watch('./app/src/fonts/*.*', ['fonts']);
 });
 
-gulp.task('default', ['lr-server', 'styles', 'views', 'js', 'images', 'watch']);
+gulp.task('default', ['lr-server', 'styles', 'views', 'js', 'images', 'fonts', 'watch']);
