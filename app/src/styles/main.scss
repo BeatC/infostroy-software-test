@@ -225,6 +225,7 @@ $navColor: #dde1ea;
 
 	.dashboard__ctg-content {
 		padding: em(8) em(16);
+		display: table-cell;
 		.content__title {
 
 			.title__icon {
@@ -428,6 +429,138 @@ $navColor: #dde1ea;
 					color: #fff;
 					outline: none;
 					float: right;
+				}
+			}
+		}
+	}
+
+	.dashboard__contacts {
+		display: table-cell;
+		width: em(220);
+		vertical-align: top;
+		border-left: em(1) solid #dbdbdb;
+			
+		.contacts__search {
+			padding: em(8) em(9) em(10);
+			border-bottom: em(1) solid #e9e9e9;
+			.search__input {
+				padding: em(10) em(7);
+				display: table-cell;
+				outline: none;
+				font-family: 'Arial', sans-serif;
+				font-size: em(14);
+				border: em(2) solid $borderColor;
+				border-right: none;
+				
+				@include border-left-radius($borderRadius);
+
+				color: #999;
+				background-color: #fff;
+			}
+
+			.search__btn {
+				display: table-cell;
+				font-size: em(12);
+				height: em(29);
+				border: em(2) solid $borderColor;
+
+				@include border-right-radius($borderRadius);
+
+				background: #fff;
+				outline: none;
+			}
+		}
+
+		.contacts__list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			overflow-y: scroll;
+
+			li {
+				padding: em(3) em(5);
+				border-bottom: em(1) solid #e9e9e9;
+				cursor: pointer;
+
+				&.active {
+					background-color: #f4f4f4;
+					border-right: em(3) solid #536895;
+				}
+
+				a {
+					display: table;
+					text-decoration: none;
+
+					img {
+						display: table-cell;
+						width: em(32);
+						height: em(32);
+					}
+					
+					.contact__title {
+						display: table-cell;
+						vertical-align: middle;
+						width: 100%;
+
+						.contact__name {
+							padding-left: em(5);
+							color: #333;
+							font-family: 'Arial', sans-serif;
+							font-size: em(14);
+							vertical-align: middle;
+						}
+
+						.contact__message {
+							padding: em(5) em(8);
+							border-radius: em(15);
+							float: right;
+							position: relative;
+							bottom: 7px;
+							vertical-align: middle;
+							background-color: $badgeBack;
+							color: #fff;
+							font-family: 'Arial', sans-serif;
+							font-size: em(10);
+						}
+					}
+				}
+			}
+		}
+
+		.contacts__ctg {
+			margin: 0;
+			background-color: #f9f9f9;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				display: inline-block;
+				padding: em(7);
+				cursor: pointer;
+
+				&.active {
+					background-color: #536895;
+					
+					.ctg__title {
+						color: #fff;
+						font-family: 'Arial', sans-serif;
+						font-size: em(12);
+					}
+				}
+				
+				.ctg__icon {
+					display: block;
+					width: em(25);
+					height: em(25);
+					margin: 0 auto;
+				}
+
+				.ctg__title {
+					font-family: 'Arial', sans-serif;
+					font-size: em(12);
+					color: #536895;
 				}
 			}
 		}
