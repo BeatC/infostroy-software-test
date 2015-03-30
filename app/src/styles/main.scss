@@ -70,14 +70,27 @@ $navColor: #dde1ea;
 
 			@include border-right-radius($borderRadius);
 
-			background: #fff;
+			background: #fafafa;
 			outline: none;
+			border-left: none;
+			padding: 17px 6px;
+			position: relative;
+			right: 5px;
+			bottom: 4px;
+
+			span {
+				display: block;
+				position: relative;
+  				bottom: 7px;
+				width: 15px;
+				height: 16px;
+				background: url('../img/search.png');
+			}
 		}
 	}
 
 	.sidebar__categories {
 		width: em(240);
-		height: 100%;
 		overflow-y: scroll;
 
 		ul {
@@ -181,6 +194,7 @@ $navColor: #dde1ea;
 				}
 
 				.list__messages {
+					cursor: pointer;
 					.messages__number {
 						font-size: em(10);
 						font-style: italic;
@@ -188,6 +202,19 @@ $navColor: #dde1ea;
 						color: #fff;
 						border-radius: em(15);
 						background-color: $badgeBack;
+						position: absolute;
+					    bottom: em(18);
+					    left: em(70);
+					}
+
+					.messages__icon {
+						display: inline-block;
+						width: em(15);
+						height: em(11);
+						margin: 0 em(12);
+						position: relative;
+						top: em(1);
+						background: url('../img/msg.png');
 					}
 				}
 
@@ -230,7 +257,7 @@ $navColor: #dde1ea;
 
 			.title__icon {
 				display: inline-block;
-				background-color: red;
+				background: url('../img/messages.png');
 				width: em(32);
 				height: em(32);
 			}
@@ -245,6 +272,17 @@ $navColor: #dde1ea;
 				font-family: 'Arial', sans-serif;
 				font-weight: 400;
 				font-size: em(24);
+			}
+
+			.title__contacts {
+				display: none;
+				float: right;
+				width: 24px;
+				height: 23px;
+				background: url('../img/contacts_menu.png');
+				cursor: pointer;
+				margin-top: em(10);
+				margin-right: em(5);
 			}
 		}
 
@@ -356,6 +394,15 @@ $navColor: #dde1ea;
 
 						.text__attachment {
 							display: block;
+							
+							.attachment__icon {
+								display: inline-block;
+								position: relative;
+								top: 1px;
+								width: 10px;
+								height: 10px;
+								background: url('../img/message_attach.png');
+							}
 
 							a {
 								font-family: 'Arial', sans-serif;
@@ -381,7 +428,6 @@ $navColor: #dde1ea;
 						border: em(2) solid #e2e3ea;
 						border-top: em(2) solid #abadb3;
 						border-radius: em(3);
-						//resize: vertical;
 						font-size: em(14);
 						color: #ccc;
 					}
@@ -399,6 +445,15 @@ $navColor: #dde1ea;
 					color: #526794;
 					background-color: #fafafa;
 					outline: none;
+
+					.attach__glyph {
+						display: inline-block;
+						width: 6px;
+						height: 6px;
+						position: relative;
+						bottom: 2px;
+						background: url('../img/attach.png');
+					}
 				}
 
 				.compose__attachments {
@@ -413,6 +468,17 @@ $navColor: #dde1ea;
 							color: #536895;
 							font-family: 'Arial', sans-serif;
 							font-size: em(14);
+						}
+
+						.attachments__delete {
+							display: inline-block;
+							position: relative;
+							top: 4px;
+							left: 4px;
+							width: 16px;
+							height: 16px;
+							background: url('../img/delete_attach.png');
+							cursor: pointer;
 						}
 					}
 				}
@@ -443,31 +509,73 @@ $navColor: #dde1ea;
 		.contacts__search {
 			padding: em(8) em(9) em(10);
 			border-bottom: em(1) solid #e9e9e9;
-			.search__input {
-				padding: em(10) em(7);
-				display: table-cell;
-				outline: none;
-				font-family: 'Arial', sans-serif;
-				font-size: em(14);
-				border: em(2) solid $borderColor;
-				border-right: none;
-				
-				@include border-left-radius($borderRadius);
 
-				color: #999;
-				background-color: #fff;
-			}
+			.search__table {
+				display: table;
+			
+				.icon__wrapper {
+					position: relative;
+					top: em(11);
+					.search__icon {
+						display: table-cell;
+						margin-top: em(10);
+						margin-left: em(5);
+						margin-right: em(8);
+						width: 24px;
+						height: 23px;
+						background: url('../img/contacts_menu.png');
+						cursor: pointer;
+					}
+				}
 
-			.search__btn {
-				display: table-cell;
-				font-size: em(12);
-				height: em(29);
-				border: em(2) solid $borderColor;
+				.input__wrapper {
+					display: table-cell;
+					.search__input {
+						width: em(135);
+						position: relative;
+						top: em(2);
+						left: em(16);
+						padding: em(10) em(7);
+						padding-top: em(11);
+						outline: none;
+						font-family: 'Arial', sans-serif;
+						font-size: em(14);
+						border: em(2) solid $borderColor;
+						border-right: none;
+						
+						@include border-left-radius($borderRadius);
 
-				@include border-right-radius($borderRadius);
+						color: #999;
+						background-color: #fff;
+					}
+				}
 
-				background: #fff;
-				outline: none;
+				.search__btn {
+					display: table-cell;
+					font-size: em(12);
+					height: em(27);
+					border: em(2) solid $borderColor;
+					border-left: none;
+
+					@include border-right-radius($borderRadius);
+
+					background: #fff;
+					outline: none;
+					
+					padding: 17px 6px;
+					position: relative;
+					left: em(16);
+					bottom: 3px;
+
+					span {
+						display: block;
+						position: relative;
+	  					bottom: 7px;
+						width: 15px;
+						height: 16px;
+						background: url('../img/search.png');
+					}
+				}
 			}
 		}
 
@@ -496,6 +604,7 @@ $navColor: #dde1ea;
 						display: table-cell;
 						width: em(32);
 						height: em(32);
+						border-radius: em(50);
 					}
 					
 					.contact__title {
@@ -539,10 +648,32 @@ $navColor: #dde1ea;
 				display: inline-block;
 				padding: em(7);
 				cursor: pointer;
+				
+				.ctg__icon {
+					display: block;
+				}
+
+				.mdrn {
+					width: 18px;
+					height: 20px;
+					background: url('../img/mdrn.png');
+				}
+
+				.staff {
+					width: 18px;
+					height: 20px;
+					background: url('../img/staff.png');
+				}
+
+				.contacts {
+					width: 21px;
+					height: 20px;
+					background: url('../img/contacts.png');
+				}
 
 				&.active {
 					background-color: #536895;
-					
+
 					.ctg__title {
 						color: #fff;
 						font-family: 'Arial', sans-serif;
@@ -552,8 +683,6 @@ $navColor: #dde1ea;
 				
 				.ctg__icon {
 					display: block;
-					width: em(25);
-					height: em(25);
 					margin: 0 auto;
 				}
 

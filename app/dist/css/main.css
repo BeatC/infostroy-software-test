@@ -44,11 +44,22 @@
       border: 0.125em solid #dbdbdb;
       border-bottom-right-radius: 0.1875em;
       border-top-right-radius: 0.1875em;
-      background: #fff;
-      outline: none; }
+      background: #fafafa;
+      outline: none;
+      border-left: none;
+      padding: 17px 6px;
+      position: relative;
+      right: 5px;
+      bottom: 4px; }
+      .sidebar .sidebar__search .search__btn span {
+        display: block;
+        position: relative;
+        bottom: 7px;
+        width: 15px;
+        height: 16px;
+        background: url('../img/search.png'); }
   .sidebar .sidebar__categories {
     width: 15em;
-    height: 100%;
     overflow-y: scroll; }
     .sidebar .sidebar__categories ul {
       height: 100%;
@@ -129,13 +140,26 @@
           font-size: 0.8125em;
           font-weight: 700;
           cursor: pointer; }
-        .dashboard .dashboard__nav .nav__quicksettings ul .list__messages .messages__number {
-          font-size: 0.625em;
-          font-style: italic;
-          padding: 0.3125em;
-          color: #fff;
-          border-radius: 0.9375em;
-          background-color: #7ab136; }
+        .dashboard .dashboard__nav .nav__quicksettings ul .list__messages {
+          cursor: pointer; }
+          .dashboard .dashboard__nav .nav__quicksettings ul .list__messages .messages__number {
+            font-size: 0.625em;
+            font-style: italic;
+            padding: 0.3125em;
+            color: #fff;
+            border-radius: 0.9375em;
+            background-color: #7ab136;
+            position: absolute;
+            bottom: 1.125em;
+            left: 4.375em; }
+          .dashboard .dashboard__nav .nav__quicksettings ul .list__messages .messages__icon {
+            display: inline-block;
+            width: 0.9375em;
+            height: 0.6875em;
+            margin: 0 0.75em;
+            position: relative;
+            top: 0.0625em;
+            background: url('../img/msg.png'); }
   .dashboard .dashboard__location {
     padding: 0.5em 1.125em;
     border-bottom: 0.125em solid #dbdbdb;
@@ -162,7 +186,7 @@
     display: table-cell; }
     .dashboard .dashboard__ctg-content .content__title .title__icon {
       display: inline-block;
-      background-color: red;
+      background: url('../img/messages.png');
       width: 2em;
       height: 2em; }
     .dashboard .dashboard__ctg-content .content__title h1 {
@@ -175,6 +199,15 @@
       font-family: 'Arial', sans-serif;
       font-weight: 400;
       font-size: 1.5em; }
+    .dashboard .dashboard__ctg-content .content__title .title__contacts {
+      display: none;
+      float: right;
+      width: 24px;
+      height: 23px;
+      background: url('../img/contacts_menu.png');
+      cursor: pointer;
+      margin-top: 0.625em;
+      margin-right: 0.3125em; }
     .dashboard .dashboard__ctg-content .content__container {
       padding: 0.5625em 0;
       border-top: 0.125em solid #536895;
@@ -262,6 +295,13 @@
             line-height: 1.5em; }
             .dashboard .dashboard__ctg-content .content__container .container__messages .messages__message .message__text .text__attachment {
               display: block; }
+              .dashboard .dashboard__ctg-content .content__container .container__messages .messages__message .message__text .text__attachment .attachment__icon {
+                display: inline-block;
+                position: relative;
+                top: 1px;
+                width: 10px;
+                height: 10px;
+                background: url('../img/message_attach.png'); }
               .dashboard .dashboard__ctg-content .content__container .container__messages .messages__message .message__text .text__attachment a {
                 font-family: 'Arial', sans-serif;
                 text-decoration: underline;
@@ -292,6 +332,13 @@
           color: #526794;
           background-color: #fafafa;
           outline: none; }
+          .dashboard .dashboard__ctg-content .content__container .container__compose .compose__attach-btn .attach__glyph {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            position: relative;
+            bottom: 2px;
+            background: url('../img/attach.png'); }
         .dashboard .dashboard__ctg-content .content__container .container__compose .compose__attachments {
           display: inline-block;
           list-style: none;
@@ -304,6 +351,15 @@
               color: #536895;
               font-family: 'Arial', sans-serif;
               font-size: 0.875em; }
+            .dashboard .dashboard__ctg-content .content__container .container__compose .compose__attachments li .attachments__delete {
+              display: inline-block;
+              position: relative;
+              top: 4px;
+              left: 4px;
+              width: 16px;
+              height: 16px;
+              background: url('../img/delete_attach.png');
+              cursor: pointer; }
         .dashboard .dashboard__ctg-content .content__container .container__compose .compose__send-btn {
           display: inline-block;
           margin-top: 0.875em;
@@ -324,27 +380,59 @@
     .dashboard .dashboard__contacts .contacts__search {
       padding: 0.5em 0.5625em 0.625em;
       border-bottom: 0.0625em solid #e9e9e9; }
-      .dashboard .dashboard__contacts .contacts__search .search__input {
-        padding: 0.625em 0.4375em;
-        display: table-cell;
-        outline: none;
-        font-family: 'Arial', sans-serif;
-        font-size: 0.875em;
-        border: 0.125em solid #dbdbdb;
-        border-right: none;
-        border-bottom-left-radius: 0.1875em;
-        border-top-left-radius: 0.1875em;
-        color: #999;
-        background-color: #fff; }
-      .dashboard .dashboard__contacts .contacts__search .search__btn {
-        display: table-cell;
-        font-size: 0.75em;
-        height: 1.8125em;
-        border: 0.125em solid #dbdbdb;
-        border-bottom-right-radius: 0.1875em;
-        border-top-right-radius: 0.1875em;
-        background: #fff;
-        outline: none; }
+      .dashboard .dashboard__contacts .contacts__search .search__table {
+        display: table; }
+        .dashboard .dashboard__contacts .contacts__search .search__table .icon__wrapper {
+          position: relative;
+          top: 0.6875em; }
+          .dashboard .dashboard__contacts .contacts__search .search__table .icon__wrapper .search__icon {
+            display: table-cell;
+            margin-top: 0.625em;
+            margin-left: 0.3125em;
+            margin-right: 0.5em;
+            width: 24px;
+            height: 23px;
+            background: url('../img/contacts_menu.png');
+            cursor: pointer; }
+        .dashboard .dashboard__contacts .contacts__search .search__table .input__wrapper {
+          display: table-cell; }
+          .dashboard .dashboard__contacts .contacts__search .search__table .input__wrapper .search__input {
+            width: 8.4375em;
+            position: relative;
+            top: 0.125em;
+            left: 1em;
+            padding: 0.625em 0.4375em;
+            padding-top: 0.6875em;
+            outline: none;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.875em;
+            border: 0.125em solid #dbdbdb;
+            border-right: none;
+            border-bottom-left-radius: 0.1875em;
+            border-top-left-radius: 0.1875em;
+            color: #999;
+            background-color: #fff; }
+        .dashboard .dashboard__contacts .contacts__search .search__table .search__btn {
+          display: table-cell;
+          font-size: 0.75em;
+          height: 1.6875em;
+          border: 0.125em solid #dbdbdb;
+          border-left: none;
+          border-bottom-right-radius: 0.1875em;
+          border-top-right-radius: 0.1875em;
+          background: #fff;
+          outline: none;
+          padding: 17px 6px;
+          position: relative;
+          left: 1em;
+          bottom: 3px; }
+          .dashboard .dashboard__contacts .contacts__search .search__table .search__btn span {
+            display: block;
+            position: relative;
+            bottom: 7px;
+            width: 15px;
+            height: 16px;
+            background: url('../img/search.png'); }
     .dashboard .dashboard__contacts .contacts__list {
       list-style: none;
       margin: 0;
@@ -364,7 +452,8 @@
           .dashboard .dashboard__contacts .contacts__list li a img {
             display: table-cell;
             width: 2em;
-            height: 2em; }
+            height: 2em;
+            border-radius: 3.125em; }
           .dashboard .dashboard__contacts .contacts__list li a .contact__title {
             display: table-cell;
             vertical-align: middle;
@@ -396,6 +485,20 @@
         display: inline-block;
         padding: 0.4375em;
         cursor: pointer; }
+        .dashboard .dashboard__contacts .contacts__ctg li .ctg__icon {
+          display: block; }
+        .dashboard .dashboard__contacts .contacts__ctg li .mdrn {
+          width: 18px;
+          height: 20px;
+          background: url('../img/mdrn.png'); }
+        .dashboard .dashboard__contacts .contacts__ctg li .staff {
+          width: 18px;
+          height: 20px;
+          background: url('../img/staff.png'); }
+        .dashboard .dashboard__contacts .contacts__ctg li .contacts {
+          width: 21px;
+          height: 20px;
+          background: url('../img/contacts.png'); }
         .dashboard .dashboard__contacts .contacts__ctg li.active {
           background-color: #536895; }
           .dashboard .dashboard__contacts .contacts__ctg li.active .ctg__title {
@@ -404,8 +507,6 @@
             font-size: 0.75em; }
         .dashboard .dashboard__contacts .contacts__ctg li .ctg__icon {
           display: block;
-          width: 1.5625em;
-          height: 1.5625em;
           margin: 0 auto; }
         .dashboard .dashboard__contacts .contacts__ctg li .ctg__title {
           font-family: 'Arial', sans-serif;
