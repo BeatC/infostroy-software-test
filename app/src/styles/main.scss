@@ -25,6 +25,8 @@ $navColor: #dde1ea;
 
 		background-color: #425377;
 		padding: em(8) em(40) em(12);
+		box-sizing: border-box;
+		height: em(54);
 
 		span {
 			font-family: 'CenturyGothic', sans-serif;
@@ -48,6 +50,7 @@ $navColor: #dde1ea;
 		border-bottom: em(1) solid $borderColor;
 
 		.search__input {
+			width: em(195);
 			padding: em(10) em(7);
 			display: table-cell;
 			outline: none;
@@ -64,6 +67,7 @@ $navColor: #dde1ea;
 
 		.search__btn {
 			display: table-cell;
+			vertical-align: top;
 			font-size: em(12);
 			height: em(29);
 			border: em(2) solid $borderColor;
@@ -76,7 +80,6 @@ $navColor: #dde1ea;
 			padding: 17px 6px;
 			position: relative;
 			right: 5px;
-			bottom: 4px;
 
 			span {
 				display: block;
@@ -101,18 +104,34 @@ $navColor: #dde1ea;
 			border-right: em(1) solid #e3e3e3;
 
 			li {
+				cursor: pointer;
 				background-color: $backColor;
 				border-top: em(1) solid #fff;
 				border-bottom: em(1) solid $borderColor;
-				padding: em(6);
+				
+				&.categories__ctg-ext {
+					background: url('../img/ext_arrow.png') $backColor no-repeat;
+					background-position: 92% em(14);
+				}
+
+				&.active {
+					a {
+						border-left: em(4) solid #536895;
+					}
+				}
 
 				a {
-					display: table;
+					display: block;
+					padding: em(6);
 					text-decoration: none;
 					font-family: 'Arial', sans-serif;
 					font-weight: 700;
 					font-size: em(14);
 					color: $ctgColor;
+
+					.ctg__wrapper {
+						display: table;
+					}
 
 					.ctg__img {
 						display: table-cell;
@@ -136,9 +155,7 @@ $navColor: #dde1ea;
 							font-style: italic;
 							border-radius: em(15);
 						}
-
 					}
-					
 				}
 			}
 
@@ -154,6 +171,8 @@ $navColor: #dde1ea;
 	vertical-align: top;
 
 	.dashboard__nav {
+		box-sizing: border-box;
+		height: em(54);
 		padding: em(15) em(14) em(12);
 		background-color: #536895;
 		.nav__sidebar-btn {
@@ -321,6 +340,7 @@ $navColor: #dde1ea;
 					display: inline-block;
 					width: em(168);
 					margin-right: em(10);
+					margin-top: em(2);
 					font-family: 'Arial', sans-serif;
 					
 					&:last-child {
@@ -421,15 +441,17 @@ $navColor: #dde1ea;
 				.compose__text {
 					width: 100%;
 					textarea {
+						box-sizing: border-box;
 						outline: none;
 						width: 100%;
-						height: em(35);
+						//height: em(60);
 						padding: em(8) em(12);
 						border: em(2) solid #e2e3ea;
 						border-top: em(2) solid #abadb3;
 						border-radius: em(3);
 						font-size: em(14);
 						color: #ccc;
+						resize: vertical;
 					}
 				}
 
@@ -515,45 +537,50 @@ $navColor: #dde1ea;
 			
 				.icon__wrapper {
 					position: relative;
-					top: em(11);
+					top: em(10);
+
 					.search__icon {
 						display: table-cell;
-						margin-top: em(10);
-						margin-left: em(5);
-						margin-right: em(8);
+						position: relative;
+						bottom: em(2);
 						width: 24px;
 						height: 23px;
 						background: url('../img/contacts_menu.png');
 						cursor: pointer;
 					}
 				}
-
-				.input__wrapper {
+					
+				.search__form-control {
 					display: table-cell;
-					.search__input {
-						width: em(135);
-						position: relative;
-						top: em(2);
-						left: em(16);
-						padding: em(10) em(7);
-						padding-top: em(11);
-						outline: none;
-						font-family: 'Arial', sans-serif;
-						font-size: em(14);
-						border: em(2) solid $borderColor;
-						border-right: none;
-						
-						@include border-left-radius($borderRadius);
+					vertical-align: top;
+				}
 
-						color: #999;
-						background-color: #fff;
-					}
+				.search__input {
+					display: table-cell;
+					vertical-align: top;
+					width: em(135);
+					position: relative;
+					top: em(2);
+					left: em(19);
+					padding: em(10) em(7);
+					padding-top: em(11);
+					outline: none;
+					font-family: 'Arial', sans-serif;
+					font-size: em(14);
+					border: em(2) solid $borderColor;
+					border-right: none;
+					
+					@include border-left-radius($borderRadius);
+					color: #999;
+					background-color: #fff;
 				}
 
 				.search__btn {
 					display: table-cell;
+					vertical-align: top;
+					box-sizing: border-box;
 					font-size: em(12);
-					height: em(27);
+					height: 36px;
 					border: em(2) solid $borderColor;
 					border-left: none;
 
@@ -565,7 +592,7 @@ $navColor: #dde1ea;
 					padding: 17px 6px;
 					position: relative;
 					left: em(16);
-					bottom: 3px;
+					top: 2px;
 
 					span {
 						display: block;
@@ -587,16 +614,18 @@ $navColor: #dde1ea;
 			overflow-y: scroll;
 
 			li {
-				padding: em(3) em(5);
 				border-bottom: em(1) solid #e9e9e9;
 				cursor: pointer;
 
 				&.active {
 					background-color: #f4f4f4;
-					border-right: em(3) solid #536895;
+					a {
+						border-right: em(3) solid #536895;
+					}
 				}
 
 				a {
+					padding: em(3) em(5);
 					display: table;
 					text-decoration: none;
 

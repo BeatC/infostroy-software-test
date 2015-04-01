@@ -13,59 +13,74 @@
 			<span class="brand__right">Ipsum</span>
 		</div>
 		<div class="sidebar__search">
-			<input 
+			<div class="search_form-control">
+				<input 
 				type="text" class="search__input" 
 				name="" id="" placeholder="Search...">
-			<button class="search__btn">
-				<span class="btn_glyph"></span>
-			</button>
+				<button class="search__btn">
+					<span class="btn_glyph"></span>
+				</button>
+			</div>
 		</div>
 		<div class="sidebar__categories">
 			<ul>
 				<li class="categories__ctg-ext">
 					<a href="#">
-						<img src="./img/administration.png" alt="#" class="ctg__img">
-						<span class="ctg__title">Administration</span>
+						<div class="ctg__wrapper">
+							<img src="./img/administration.png" alt="#" class="ctg__img">
+							<span class="ctg__title">Administration</span>
+						</div>
 					</a>
 				</li>
 				<li class="categories__ctg-ext">
 					<a href="#">
-						<img src="./img/content-management.png" alt="#" class="ctg__img">
-						<span class="ctg__title">Content Management</span>
+						<div class="ctg__wrapper">
+							<img src="./img/content-management.png" alt="#" class="ctg__img">
+							<span class="ctg__title">Content Management</span>
+						</div>
 					</a>
 				</li>
 				<li class="categories__ctg-ext">
 					<a href="#">
-						<img src="./img/forms.png" alt="#" class="ctg__img">
-						<span class="ctg__title">Forms</span>
+						<div class="ctg__wrapper">
+							<img src="./img/forms.png" alt="#" class="ctg__img">
+							<span class="ctg__title">Forms</span>
+						</div>
 					</a>
 				</li>
 				<li class="categories__ctg">
 					<a href="#">
-						<img src="./img/weekly-schedule.png" alt="#" class="ctg__img">
-						<span class="ctg__title">Weekly Schedule</span>
+						<div class="ctg__wrapper">
+							<img src="./img/weekly-schedule.png" alt="#" class="ctg__img">
+							<span class="ctg__title">Weekly Schedule</span>
+						</div>
 					</a>
 				</li>
 				<li class="categories__ctg">
 					<a href="#">
-						<img src="./img/todo.png" alt="#" class="ctg__img">
-						<span class="ctg__title">To Do List</span>
+						<div class="ctg__wrapper">
+							<img src="./img/todo.png" alt="#" class="ctg__img">
+							<span class="ctg__title">To Do List</span>
+						</div>
 					</a>
 				</li>
 				<li class="categories__ctg">
 					<a href="#">
-						<img src="./img/patients.png" alt="#" class="ctg__img">
-						<span class="ctg__title">Patients</span>
+						<div class="ctg__wrapper">
+							<img src="./img/patients.png" alt="#" class="ctg__img">
+							<span class="ctg__title">Patients</span>
+						</div>
 					</a>
 				</li>
 				<li class="categories__ctg active">
 					<a href="#">
-						<img src="./img/messages.png" alt="#" class="ctg__img">
-						<span class="ctg__title">
-							Messages
-							<span class="ctg__messages">27</span>
-						</span>
-						
+						<div class="ctg__wrapper">
+							<img src="./img/messages.png" alt="#" class="ctg__img">
+							<span class="ctg__title">
+								Messages
+								<span class="ctg__messages">27</span>
+							</span>
+						</div>
 					</a>
 				</li>
 			</ul>
@@ -174,7 +189,7 @@
 				</ul>
 				<div class="container__compose">
 					<div class="compose__text">
-						<textarea name="" id="" cols="30" rows="10" placeholder="Type a message..."></textarea>
+						<textarea cols="30" rows="2" placeholder="Type a message..."></textarea>
 					</div>
 					<button class="compose__attach-btn">
 						<span class="attach__glyph"></span>
@@ -196,14 +211,14 @@
 					<div class="icon__wrapper">
 						<span class="search__icon"></span>
 					</div>
-					<div class="input__wrapper">
+					<div class="search__form-control">
 						<input 
-						type="text" name="" id="" 
-						placeholder="Search..." class="search__input">
+							type="text" name="" id="" 
+							placeholder="Search..." class="search__input">
+						<button class="search__btn">
+							<span class="btn__glyph"></span>
+						</button>
 					</div>
-					<button class="search__btn">
-						<span class="btn__glyph"></span>
-					</button>
 				</div>
 			</div>
 			<ul class="contacts__list">

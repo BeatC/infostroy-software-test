@@ -1,39 +1,33 @@
 ; (function (window) {
 	var sidebar = $('.sidebar'),
 		dashboardContacts = $('.dashboard__contacts'),
+		containerSettings = $('.container__settings'),
 		titleContacts = $('.title__contacts'),
 		headerHeight = $('.dashboard__nav').height() + $('.dashboard__location').height(),
-		adapt;
+		adapt, checkWidth;
 
 	$('.nav__sidebar-btn').click(function () {
-		sidebar.animate({
-			width: 0
-		}, 400, 'easeInOutCirc', function() {
-			sidebar.css('display', 'none');
-		});
+		sidebar.toggle();
+		checkWidth()
 	});
 
 	titleContacts.click(function () {
-		dashboardContacts.show(400);
-		titleContacts.animate({
-			opacity: 0
-		}, 400, 'swing', function () {
-			titleContacts.css('display', 'none');
-		});
+		dashboardContacts.show();
+		titleContacts.css('display', 'none');
+		checkWidth();
 	});
 
 	$('.search__icon').click(function () {
-		dashboardContacts.hide(400);
+		dashboardContacts.hide();
 		titleContacts.css('display', 'inline-block');
-		titleContacts.animate({
-			opacity: 1
-		}, 1000, 'easeOutCubic');
+		checkWidth()
 	});
 
 	$(window).resize(function () {
 		if($(window).height() >= 600) {
 			adapt();
 		}
+		checkWidth();
 	});
 
 	// adapting height to the window resolution
@@ -42,7 +36,27 @@
 		$('.container__messages').height($(window).height() - $('.dashboard').height() + $('.container__messages').height());
 		// for contacts
 		$('.contacts__list').height($(window).height() - $('.dashboard').height() + $('.contacts__list').height());
-	}
+	};
 
+	checkWidth = function () {
+		var messagesHeight;
+		if(containerSettings.width() <= 560) {
+			messagesHeight = $('.container__messages').height();
+			$('.container__settings .settings__group').css({
+				display: 'block',
+				marginLeft: 'auto',
+				marginRight: 'auto'
+			});
+			$('.container__messages').height(messagesHeight);
+		} else {
+			$('.container__settings .settings__group').css({
+				display: 'inline-block',
+				marginRight: 10
+			});
+			adapt();
+		}
+	};
+
+	checkWidth();
 	adapt();
 })(this);
