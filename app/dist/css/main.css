@@ -5,14 +5,17 @@
   font-weight: normal;
   src: url("../fonts/gothic.eot?#iefix") format("embedded-opentype"), url("../fonts/gothic.woff") format("woff"), url("../fonts/gothic.ttf") format("truetype"); }
 
-@font-face {
-  font-family: 'Arial';
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/arial.eot?#iefix") format("embedded-opentype"), url("../fonts/arial.woff") format("woff"), url("../fonts/arial.ttf") format("truetype"); }
+body {
+  width: 100%;
+  overflow: hidden; }
 
 .sidebar {
-  display: table-cell;
+  display: inline-block;
+  margin-right: -0.3125em;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
   vertical-align: top;
   background-color: #f4f4f4; }
   .sidebar .sidebar__brand {
@@ -128,9 +131,11 @@
               border-radius: 0.9375em; }
 
 .dashboard {
-  display: table-cell;
+  display: inline-block;
+  box-sizing: border-box;
   vertical-align: top;
-  width: 50.25em; }
+  width: 100%;
+  padding-left: 13.75em; }
   .dashboard .dashboard__nav {
     box-sizing: border-box;
     height: 3.125em;
@@ -152,8 +157,6 @@
     .dashboard .dashboard__nav .nav__quicksettings {
       display: inline-block;
       float: right;
-      position: relative;
-      bottom: 1.5em;
       font-family: 'Arial', sans-serif; }
       .dashboard .dashboard__nav .nav__quicksettings ul {
         list-style: none;
@@ -164,6 +167,7 @@
         -ms-user-select: none;
         user-select: none; }
         .dashboard .dashboard__nav .nav__quicksettings ul li {
+          margin: 0 0.75em;
           display: inline-block; }
         .dashboard .dashboard__nav .nav__quicksettings ul .list__language, .dashboard .dashboard__nav .nav__quicksettings ul .list__user {
           color: #dde1ea;
@@ -179,14 +183,13 @@
             color: #fff;
             border-radius: 0.9375em;
             background-color: #7ab136;
-            position: absolute;
-            bottom: 1.125em;
-            left: 4.375em; }
+            position: relative;
+            bottom: 1.25em;
+            right: 1.125em; }
           .dashboard .dashboard__nav .nav__quicksettings ul .list__messages .messages__icon {
             display: inline-block;
             width: 0.9375em;
             height: 0.6875em;
-            margin: 0 0.75em;
             position: relative;
             top: 0.0625em;
             background: url('../img/msg.png'); }
@@ -215,8 +218,8 @@
   .dashboard .dashboard__ctg-content {
     padding: 0.4375em 0.875em;
     padding-right: 0.75em;
-    display: table-cell;
-    width: 34.8125em; }
+    display: inline-block;
+    margin-right: 13.8125em; }
     .dashboard .dashboard__ctg-content .content__title .title__icon {
       display: inline-block;
       background: url('../img/messages.png');
@@ -236,6 +239,7 @@
       font-size: 1.375em; }
     .dashboard .dashboard__ctg-content .content__title .title__contacts {
       display: none;
+      opacity: 0;
       float: right;
       width: 24px;
       height: 23px;
@@ -247,7 +251,7 @@
       padding: 0.5625em 0 0.5em;
       border-top: 0.125em solid #536895;
       border-radius: 0.1875em;
-      width: 34.875em;
+      width: 100%;
       -webkit-box-shadow: 0 0 0.125em 0 rgba(0, 0, 0, 0.2);
       -moz-box-shadow: 0 0 0.125em 0 rgba(0, 0, 0, 0.2);
       box-shadow: 0 0 0.125em 0 rgba(0, 0, 0, 0.2); }
@@ -328,7 +332,6 @@
           .dashboard .dashboard__ctg-content .content__container .container__messages .messages__message .message__text {
             margin: 0;
             margin-top: 0.375em;
-            width: 38.125em;
             color: #333;
             font-family: 'Arial', sans-serif;
             font-size: 0.75em;
@@ -431,7 +434,10 @@
             transition: background-color 0.3s ease-in;
             -webkit-transition: background-color 0.3s ease-in; }
   .dashboard .dashboard__contacts {
-    display: table-cell;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 4.875em;
     width: 13.75em;
     vertical-align: top;
     border-left: 0.0625em solid #dbdbdb; }
@@ -458,7 +464,7 @@
         .dashboard .dashboard__contacts .contacts__search .search__table .search__input {
           display: table-cell;
           vertical-align: top;
-          width: 10.25em;
+          width: 10.4375em;
           position: relative;
           top: 0.125em;
           left: 0.875em;

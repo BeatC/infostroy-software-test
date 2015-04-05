@@ -2,7 +2,6 @@
 @import '../../vendor/bourbon/app/assets/stylesheets/bourbon';
 
 @include font-face('CenturyGothic', '../fonts/gothic', $file-formats: eot ttf woff);
-@include font-face('Arial', '../fonts/arial', $file-formats: eot ttf woff);
 
 @mixin box-shadow($x, $y, $blur, $spread, $color) {
 	-webkit-box-shadow: $x $y $blur $spread $color;
@@ -18,8 +17,18 @@ $badgeBack: #7ab136;
 $navColor: #dde1ea;
 $hoverColor: #e8e8e8;
 
+body {
+	width: 100%;
+	overflow: hidden;
+}
+
 .sidebar {
-	display: table-cell;
+	display: inline-block;
+	margin-right: em(-5);
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
 	vertical-align: top;
 	background-color: $backColor;
 
@@ -180,9 +189,11 @@ $hoverColor: #e8e8e8;
 }
 
 .dashboard {
-	display: table-cell;
+	display: inline-block;
+	box-sizing: border-box;
 	vertical-align: top;
-	width: em(804);
+	width: 100%;
+	padding-left: em(220);
 	.dashboard__nav {
 		box-sizing: border-box;
 		height: em(50);
@@ -204,8 +215,6 @@ $hoverColor: #e8e8e8;
 		.nav__quicksettings {
 			display: inline-block;
 			float: right;
-			position: relative;
-			bottom: em(24);
 			font-family: 'Arial', sans-serif;
 			
 			ul {
@@ -215,6 +224,7 @@ $hoverColor: #e8e8e8;
 				@include user-select(none);
 
 				li {
+					margin: 0 em(12);
 					display: inline-block;
 				}
 
@@ -234,16 +244,15 @@ $hoverColor: #e8e8e8;
 						color: #fff;
 						border-radius: em(15);
 						background-color: $badgeBack;
-						position: absolute;
-					    bottom: em(18);
-					    left: em(70);
+						position: relative;
+						bottom: em(20);
+						right: em(18);
 					}
 
 					.messages__icon {
 						display: inline-block;
 						width: em(15);
 						height: em(11);
-						margin: 0 em(12);
 						position: relative;
 						top: em(1);
 						background: url('../img/msg.png');
@@ -285,8 +294,8 @@ $hoverColor: #e8e8e8;
 	.dashboard__ctg-content {
 		padding: em(7) em(14);
 		padding-right: em(12);
-		display: table-cell;
-		width: em(557);
+		display: inline-block;
+		margin-right: em(221);
 
 		.content__title {
 
@@ -313,6 +322,7 @@ $hoverColor: #e8e8e8;
 
 			.title__contacts {
 				display: none;
+				opacity: 0;
 				float: right;
 				width: 24px;
 				height: 23px;
@@ -327,7 +337,7 @@ $hoverColor: #e8e8e8;
 			padding: em(9) 0 em(8);
 			border-top: em(2) solid #536895;
 			border-radius: em(3);
-			width: em(558);
+			width: 100%;
 			@include box-shadow(0, 0, em(2), 0, rgba(0,0,0,0.2));
 
 			.container__name {
@@ -431,7 +441,6 @@ $hoverColor: #e8e8e8;
 					.message__text {
 						margin: 0;
 						margin-top: em(6);
-						width: em(610);
 						color: #333;
 						font-family: 'Arial', sans-serif;
 						font-size: em(12);
@@ -565,7 +574,10 @@ $hoverColor: #e8e8e8;
 	}
 
 	.dashboard__contacts {
-		display: table-cell;
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		top: em(78);
 		width: em(220);
 		vertical-align: top;
 		border-left: em(1) solid #dbdbdb;
@@ -601,7 +613,7 @@ $hoverColor: #e8e8e8;
 				.search__input {
 					display: table-cell;
 					vertical-align: top;
-					width: em(164);
+					width: em(167);
 					position: relative;
 					top: em(2);
 					left: em(14);

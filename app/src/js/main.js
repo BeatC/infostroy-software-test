@@ -1,50 +1,76 @@
-; /*(function (window) {
+; (function (window) {
 	var sidebar = $('.sidebar'),
 		dashboardContacts = $('.dashboard__contacts'),
 		containerSettings = $('.container__settings'),
 		titleContacts = $('.title__contacts'),
-		headerHeight = $('.dashboard__nav').height() + $('.dashboard__location').height(),
+		headerHeight = $('.dashboard__header').height(),
 		adapt, checkWidth;
 
 	$('.nav__sidebar-btn').click(function () {
-		sidebar.toggle();
-		checkWidth()
-		adapt();
-	});
+		var offset, dashPadding;
+		if(sidebar.css('left') === '0px') {
+			offset = '-' + sidebar.width();
+			dashPadding = 0;
+		} else {
+			offset = 0;
+			dashPadding = 220;
+		}
 
-	titleContacts.click(function () {
-		dashboardContacts.show();
-		titleContacts.css('display', 'none');
-		checkWidth();
-		adapt();
+		sidebar.animate({
+			left: offset
+		}, 400, 'easeOutCubic', function () {
+			adapt();
+		});
+
+		$('.dashboard').animate({
+			paddingLeft: dashPadding
+		}, 400, 'easeOutCubic');
+		//checkWidth()
 	});
 
 	$('.search__icon').click(function () {
-		dashboardContacts.hide();
+		dashboardContacts.animate({
+			right: '-' + dashboardContacts.width()
+		}, 400, 'easeOutCubic');
+
+		$('.dashboard__ctg-content').animate({
+			marginRight: 0
+		}, 400, 'easeOutCubic', function () {
+			adapt();
+		});
+
 		titleContacts.css('display', 'inline-block');
-		checkWidth()
-		adapt();
+		titleContacts.animate({
+			opacity: 1
+		}, 200, 'easeOutCubic');
 	});
 
-	$(window).resize(function () {
-		if($(window).height() >= 600) {
-			adapt();
-		}
-		checkWidth();
+	titleContacts.click(function () {
+		dashboardContacts.animate({
+			right: 0
+		}, 400, 'easeOutCubic');
+		titleContacts.animate({
+			opacity: 0
+		}, 200, 'easeOutCubic', function () {
+			titleContacts.css('display', 'none');
+		});
+		
+		$('.dashboard__ctg-content').animate({
+			marginRight: 221
+		}, 400, 'easeOutCubic');
 	});
 
 	// adapting height to the window resolution
 	adapt = function () {
 		// for messages
 		$('.container__messages').height($(window).height() - $('.dashboard').height() + $('.container__messages').height());
-		$('.dashboard__ctg-content').width($(window).width() - $('.sidebar').width() - $('.dashboard__contacts').width());
 		// for contacts
-		$('.contacts__list').height($(window).height() - $('.dashboard').height() + $('.contacts__list').height());
+		$('.contacts__list').height($(window).height() - headerHeight - $('.contacts__ctg').height() - $('.contacts__search-wrapper').height());
 	};
 
 	checkWidth = function () {
 		var messagesHeight;
-		if(containerSettings.width() <= 560) {
+		/*if(containerSettings.width() <= 560) {
 			messagesHeight = $('.container__messages').height();
 			$('.container__settings .settings__group').css({
 				display: 'block',
@@ -57,9 +83,20 @@
 				display: 'inline-block',
 				marginRight: 10
 			});
-		}
+		}*/
 	};
 
+/*	
+
+	$(window).resize(function () {
+		if($(window).height() >= 600) {
+			adapt();
+		}
+		checkWidth();
+	});
+
+	
+*/
 	//checkWidth();
-	//adapt();
-})(this);*/
+	adapt();
+})(this);
