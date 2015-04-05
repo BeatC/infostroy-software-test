@@ -1,4 +1,4 @@
-; (function (window) {
+; /*(function (window) {
 	var sidebar = $('.sidebar'),
 		dashboardContacts = $('.dashboard__contacts'),
 		containerSettings = $('.container__settings'),
@@ -9,18 +9,21 @@
 	$('.nav__sidebar-btn').click(function () {
 		sidebar.toggle();
 		checkWidth()
+		adapt();
 	});
 
 	titleContacts.click(function () {
 		dashboardContacts.show();
 		titleContacts.css('display', 'none');
 		checkWidth();
+		adapt();
 	});
 
 	$('.search__icon').click(function () {
 		dashboardContacts.hide();
 		titleContacts.css('display', 'inline-block');
 		checkWidth()
+		adapt();
 	});
 
 	$(window).resize(function () {
@@ -34,6 +37,7 @@
 	adapt = function () {
 		// for messages
 		$('.container__messages').height($(window).height() - $('.dashboard').height() + $('.container__messages').height());
+		$('.dashboard__ctg-content').width($(window).width() - $('.sidebar').width() - $('.dashboard__contacts').width());
 		// for contacts
 		$('.contacts__list').height($(window).height() - $('.dashboard').height() + $('.contacts__list').height());
 	};
@@ -53,10 +57,9 @@
 				display: 'inline-block',
 				marginRight: 10
 			});
-			adapt();
 		}
 	};
 
-	checkWidth();
-	adapt();
-})(this);
+	//checkWidth();
+	//adapt();
+})(this);*/

@@ -2,6 +2,7 @@
 @import '../../vendor/bourbon/app/assets/stylesheets/bourbon';
 
 @include font-face('CenturyGothic', '../fonts/gothic', $file-formats: eot ttf woff);
+@include font-face('Arial', '../fonts/arial', $file-formats: eot ttf woff);
 
 @mixin box-shadow($x, $y, $blur, $spread, $color) {
 	-webkit-box-shadow: $x $y $blur $spread $color;
@@ -15,6 +16,7 @@ $backColor: #f4f4f4;
 $ctgColor: #555;
 $badgeBack: #7ab136;
 $navColor: #dde1ea;
+$hoverColor: #e8e8e8;
 
 .sidebar {
 	display: table-cell;
@@ -24,9 +26,9 @@ $navColor: #dde1ea;
 	.sidebar__brand {
 
 		background-color: #425377;
-		padding: em(8) em(40) em(12);
+		padding: em(5) 0 em(12) em(40);
 		box-sizing: border-box;
-		height: em(54);
+		height: em(50);
 
 		span {
 			font-family: 'CenturyGothic', sans-serif;
@@ -40,22 +42,23 @@ $navColor: #dde1ea;
 		span.brand__right {
 			color: #ff851b;
 			position: relative;
-			right: em(2);
+			right: em(3);
 		}
 	}
 
 	.sidebar__search {
 		padding: em(10);
+		padding-right: 0;
 		background-color: $backColor;
 		border-bottom: em(1) solid $borderColor;
 
 		.search__input {
 			width: em(195);
-			padding: em(10) em(7);
+			padding: em(9) em(8) em(8);
 			display: table-cell;
 			outline: none;
 			font-family: 'Arial', sans-serif;
-			font-size: em(14);
+			font-size: em(13);
 			border: em(2) solid $borderColor;
 			border-right: none;
 			
@@ -77,14 +80,14 @@ $navColor: #dde1ea;
 			background: #fafafa;
 			outline: none;
 			border-left: none;
-			padding: 17px 6px;
+			padding: 14px 6px 15px;
 			position: relative;
 			right: 5px;
 
 			span {
 				display: block;
 				position: relative;
-  				bottom: 7px;
+  				bottom: 8px;
 				width: 15px;
 				height: 16px;
 				background: url('../img/search.png');
@@ -93,7 +96,7 @@ $navColor: #dde1ea;
 	}
 
 	.sidebar__categories {
-		width: em(240);
+		width: em(220);
 		overflow-y: scroll;
 
 		ul {
@@ -108,13 +111,24 @@ $navColor: #dde1ea;
 				background-color: $backColor;
 				border-top: em(1) solid #fff;
 				border-bottom: em(1) solid $borderColor;
+
+				&:hover {
+					background-color: $hoverColor;
+					transition: background-color 0.3s ease-in;
+					-webkit-transition: background-color 0.3s ease-in;
+				}
 				
 				&.categories__ctg-ext {
 					background: url('../img/ext_arrow.png') $backColor no-repeat;
-					background-position: 92% em(14);
+					background-position: em(189) em(17);
+				}
+
+				&.categories__ctg-ext:hover {
+					background-color: $hoverColor;
 				}
 
 				&.active {
+					background-color: $hoverColor;
 					a {
 						border-left: em(4) solid #536895;
 					}
@@ -122,11 +136,11 @@ $navColor: #dde1ea;
 
 				a {
 					display: block;
-					padding: em(6);
+					padding: em(7) em(8);
 					text-decoration: none;
 					font-family: 'Arial', sans-serif;
 					font-weight: 700;
-					font-size: em(14);
+					font-size: em(13);
 					color: $ctgColor;
 
 					.ctg__wrapper {
@@ -135,8 +149,8 @@ $navColor: #dde1ea;
 
 					.ctg__img {
 						display: table-cell;
-						width: em(32);
-						height: em(32);
+						width: em(40);
+						height: em(40);
 					}
 
 					.ctg__title {
@@ -145,7 +159,10 @@ $navColor: #dde1ea;
 						vertical-align: middle;
 
 						.ctg__messages {
-							padding: em(5) em(10);
+							position: relative;
+							right: em(2);
+							bottom: em(5);
+							padding: em(5) em(12);
 							margin-left: em(5);
 							background-color: $badgeBack;
 							color: #fff;
@@ -158,10 +175,6 @@ $navColor: #dde1ea;
 					}
 				}
 			}
-
-			li.active {
-				background-color: #e8e8e8;
-			}
 		}
 	}
 }
@@ -169,11 +182,11 @@ $navColor: #dde1ea;
 .dashboard {
 	display: table-cell;
 	vertical-align: top;
-
+	width: em(804);
 	.dashboard__nav {
 		box-sizing: border-box;
-		height: em(54);
-		padding: em(15) em(14) em(12);
+		height: em(50);
+		padding: em(14) em(15) em(13);
 		background-color: #536895;
 		.nav__sidebar-btn {
 			display: inline-block;
@@ -190,15 +203,15 @@ $navColor: #dde1ea;
 		}
 		.nav__quicksettings {
 			display: inline-block;
+			float: right;
+			position: relative;
+			bottom: em(24);
 			font-family: 'Arial', sans-serif;
-
+			
 			ul {
 				list-style: none;
 				margin: 0;
 				padding: 0;
-				position: absolute;
-				right: em(16);
-				top: em(18);
 				@include user-select(none);
 
 				li {
@@ -236,17 +249,16 @@ $navColor: #dde1ea;
 						background: url('../img/msg.png');
 					}
 				}
-
 			}
 		}
 	}
 
 	.dashboard__location {
-		padding: em(8) em(18);
+		padding: em(7) em(22) em(10);
 		border-bottom: em(2) solid $borderColor;
 		background-color: #fff;
 		font-family: 'Arial', sans-serif;
-		font-size: em(13);
+		font-size: em(12);
 		@include user-select(none);
 
 		.location__node {
@@ -256,12 +268,13 @@ $navColor: #dde1ea;
 
 		.location__node:after {
 			content: "/";
-			margin-left: em(5);
+			margin-left: em(10);
 			color: #ccc;
 		}
 
 		.location__node.active {
 			color: #333;
+			margin-left: em(4);
 		}
 
 		.location__node.active:after {
@@ -270,8 +283,11 @@ $navColor: #dde1ea;
 	}
 
 	.dashboard__ctg-content {
-		padding: em(8) em(16);
+		padding: em(7) em(14);
+		padding-right: em(12);
 		display: table-cell;
+		width: em(557);
+
 		.content__title {
 
 			.title__icon {
@@ -279,18 +295,20 @@ $navColor: #dde1ea;
 				background: url('../img/messages.png');
 				width: em(32);
 				height: em(32);
+				position: relative;
+				right: em(1);
 			}
 
 			h1 {
 				display: inline-block;
 				position: relative;
-				bottom: em(5);
-				margin-left: em(3);
-				margin-bottom: em(6);
+				bottom: em(7);
+				margin-left: em(2);
+				margin-bottom: em(1);
 				color: #333;
 				font-family: 'Arial', sans-serif;
 				font-weight: 400;
-				font-size: em(24);
+				font-size: em(22);
 			}
 
 			.title__contacts {
@@ -306,13 +324,14 @@ $navColor: #dde1ea;
 		}
 
 		.content__container {
-			padding: em(9) 0;
+			padding: em(9) 0 em(8);
 			border-top: em(2) solid #536895;
-			border-radius: em(5);
+			border-radius: em(3);
+			width: em(558);
 			@include box-shadow(0, 0, em(2), 0, rgba(0,0,0,0.2));
 
 			.container__name {
-				padding: 0 em(11) em(4);
+				padding: 0 em(11) em(5);
 				border-bottom: em(1) solid #e9e9e9;
 				.name__photo {
 					width: em(48);
@@ -325,21 +344,22 @@ $navColor: #dde1ea;
 					margin: 0;
 					margin-left: em(6);
 					position: relative;
-					bottom: em(9);
+					bottom: em(16);
 					color: #333;
 					font-weight: 400;
 					font-family: 'Arial', sans-serif;
+					font-size: em(18);
 				}
 			}
 
 			.container__settings {
-				padding: em(10) em(11) em(10);
+				padding: em(7) em(14) em(14);
 				border-bottom: em(1) solid #e9e9e9;
 
 				.settings__group {
 					display: inline-block;
 					width: em(168);
-					margin-right: em(10);
+					margin-right: em(8);
 					margin-top: em(2);
 					font-family: 'Arial', sans-serif;
 					
@@ -350,17 +370,18 @@ $navColor: #dde1ea;
 					label {
 						display: block;
 						color: #999;	
-						font-size: em(14);
-						padding-bottom: em(8);					
+						font-size: em(12);
+						padding-bottom: em(9);					
 					}
 					
 					select {
+						cursor: pointer;
 						outline: none;
 						color: #555;
 						background-color: #fff;
-						font-size: em(14);
+						font-size: em(13);
 						border: em(2) solid #ccc;
-						padding: em(8);
+						padding: em(7) em(7) em(8);
 						width: 100%;
 						option {
 							color: #555;
@@ -377,14 +398,15 @@ $navColor: #dde1ea;
 				list-style: none;
 				overflow-y: scroll;
 				.messages__message {
-					padding: em(14);
-					margin: em(16) em(32) em(16) em(16);
+					padding: em(10);
+					margin: em(16) em(36) em(16) em(16);
 					border-radius: em(10);
 					background-color: #dfe9f7;
 
 					&.mine {
 						background-color: #f4f4f4;
-						margin: em(35) em(10) em(35) em(28);
+						margin: em(33) em(17) em(35) em(30);
+						padding: em(12);
 						.message__name {
 							color: #999;
 						}
@@ -393,22 +415,26 @@ $navColor: #dde1ea;
 					.message__name {
 						font-family: 'Arial', sans-serif;
 						font-weight: 700;
-						font-size: em(14);
+						font-size: em(12);
 						color: #333;
+						position: relative;
+						bottom: em(4);
 					}
 
 					.message__date {
 						color: #999;
 						float: right;
-						font-size: em(14);
+						font-size: em(12);
+						margin-right: em(2);
 					}
 
 					.message__text {
 						margin: 0;
-						margin-top: em(14);
+						margin-top: em(6);
+						width: em(610);
 						color: #333;
 						font-family: 'Arial', sans-serif;
-						font-size: em(13);
+						font-size: em(12);
 						@include hyphens(auto);
 						line-height: 1.5em;
 
@@ -426,6 +452,7 @@ $navColor: #dde1ea;
 
 							a {
 								font-family: 'Arial', sans-serif;
+								font-size: em(16);
 								text-decoration: underline;
 								color: #526693;	
 							}
@@ -444,12 +471,11 @@ $navColor: #dde1ea;
 						box-sizing: border-box;
 						outline: none;
 						width: 100%;
-						//height: em(60);
-						padding: em(8) em(12);
+						padding: em(10) em(17);
 						border: em(2) solid #e2e3ea;
 						border-top: em(2) solid #abadb3;
 						border-radius: em(3);
-						font-size: em(14);
+						font-size: em(12);
 						color: #ccc;
 						resize: vertical;
 					}
@@ -457,24 +483,31 @@ $navColor: #dde1ea;
 
 				.compose__attach-btn {
 					display: inline-block;
-					margin-top: em(14);
-					padding: em(8) em(7);
+					margin-top: em(7);
+					padding: em(8) em(9);
 					border: em(2) solid #ddd;
 					border-bottom: em(3) solid #ddd;
 					border-radius: em(3);
 					font-family: 'Arial', sans-serif;
-					font-size: em(14);
+					font-size: em(12);
 					color: #526794;
 					background-color: #fafafa;
+					transition: background-color 0.3s ease-out;
+					-webkit-transition: background-color 0.3s ease-out;
 					outline: none;
 
 					.attach__glyph {
 						display: inline-block;
 						width: 6px;
 						height: 6px;
-						position: relative;
-						bottom: 2px;
+						margin-right: em(1);
 						background: url('../img/attach.png');
+					}
+
+					&:hover {
+						background-color: $hoverColor;
+						transition: background-color 0.3s ease-in;
+						-webkit-transition: background-color 0.3s ease-in;
 					}
 				}
 
@@ -484,19 +517,19 @@ $navColor: #dde1ea;
 					margin: 0;
 					padding: 0;
 					li {
-						margin-left: em(14);
+						margin: em(9);
 						a {
 							text-decoration: none;
 							color: #536895;
 							font-family: 'Arial', sans-serif;
-							font-size: em(14);
+							font-size: em(12);
 						}
 
 						.attachments__delete {
 							display: inline-block;
 							position: relative;
 							top: 4px;
-							left: 4px;
+							left: 1px;
 							width: 16px;
 							height: 16px;
 							background: url('../img/delete_attach.png');
@@ -507,16 +540,25 @@ $navColor: #dde1ea;
 
 				.compose__send-btn {
 					display: inline-block;
-					margin-top: em(14);
-					padding: em(7) em(14);
+					margin-top: em(8);
+					margin-left: em(1);
+					padding: em(9) em(20) em(10);
 					border: em(2) solid #a5afc3;
 					border-radius: em(3);
 					background-color: #a9b3ca;
+					transition: background-color 0.3s ease-out;
+					-webkit-transition: background-color 0.3s ease-out;
 					font-family: 'Arial', sans-serif;
-					font-size: em(14);
+					font-size: em(12);
 					color: #fff;
 					outline: none;
 					float: right;
+
+					&:hover {
+						background-color: #536895;
+						transition: background-color 0.3s ease-in;
+						-webkit-transition: background-color 0.3s ease-in;
+					}
 				}
 			}
 		}
@@ -537,7 +579,8 @@ $navColor: #dde1ea;
 			
 				.icon__wrapper {
 					position: relative;
-					top: em(10);
+					top: em(7);
+					left: em(1);
 
 					.search__icon {
 						display: table-cell;
@@ -558,15 +601,14 @@ $navColor: #dde1ea;
 				.search__input {
 					display: table-cell;
 					vertical-align: top;
-					width: em(135);
+					width: em(164);
 					position: relative;
 					top: em(2);
-					left: em(19);
-					padding: em(10) em(7);
-					padding-top: em(11);
+					left: em(14);
+					padding: em(9) em(12) em(9);
 					outline: none;
 					font-family: 'Arial', sans-serif;
-					font-size: em(14);
+					font-size: em(12);
 					border: em(2) solid $borderColor;
 					border-right: none;
 					
@@ -580,7 +622,7 @@ $navColor: #dde1ea;
 					vertical-align: top;
 					box-sizing: border-box;
 					font-size: em(12);
-					height: 36px;
+					height: em(41);
 					border: em(2) solid $borderColor;
 					border-left: none;
 
@@ -589,15 +631,16 @@ $navColor: #dde1ea;
 					background: #fff;
 					outline: none;
 					
-					padding: 17px 6px;
+					padding: em(10) em(6) em(11);
 					position: relative;
-					left: em(16);
-					top: 2px;
+					left: em(9);
+					top: em(1);
 
 					span {
 						display: block;
 						position: relative;
-	  					bottom: 7px;
+	  					bottom: em(3);
+	  					right: em(2);
 						width: 15px;
 						height: 16px;
 						background: url('../img/search.png');
@@ -614,18 +657,48 @@ $navColor: #dde1ea;
 			overflow-y: scroll;
 
 			li {
+				background-color: #fff;
 				border-bottom: em(1) solid #e9e9e9;
+				transition: background-color 0.3s ease-out;
+				-webkit-transition: background-color 0.3s ease-out;
 				cursor: pointer;
+				height: em(41);
+				
+				a {
+					border-right: em(3) solid #fff;
+					transition: border-right 0.3s ease-out;
+					-webkit-transition: border-right 0.3s ease-out;
+				}
 
 				&.active {
 					background-color: #f4f4f4;
+
+					&:hover a {
+						border-right: em(3) solid #536895;
+						transition: border-right 0.3s ease-in;
+						-webkit-transition: border-right 0.3s ease-in;
+					} 
+
 					a {
 						border-right: em(3) solid #536895;
 					}
 				}
 
+				&:hover {
+					background-color: #f4f4f4;
+					transition: background-color 0.3s ease-in;
+					-webkit-transition: background-color 0.3s ease-in;
+
+					a {
+						border-right: em(3) solid #f4f4f4;
+						transition: border-right 0.3s ease-in;
+						-webkit-transition: border-right 0.3s ease-in;
+					}
+
+				}
+
 				a {
-					padding: em(3) em(5);
+					padding: em(4) em(6) em(5);
 					display: table;
 					text-decoration: none;
 
@@ -642,24 +715,26 @@ $navColor: #dde1ea;
 						width: 100%;
 
 						.contact__name {
-							padding-left: em(5);
+							padding-left: em(7);
 							color: #333;
 							font-family: 'Arial', sans-serif;
-							font-size: em(14);
+							font-size: em(12);
 							vertical-align: middle;
 						}
 
 						.contact__message {
-							padding: em(5) em(8);
+							height: em(15);
+							padding: em(5) em(10) em(7);
 							border-radius: em(15);
 							float: right;
 							position: relative;
-							bottom: 7px;
+							bottom: em(7);
+							right: em(1);
 							vertical-align: middle;
 							background-color: $badgeBack;
 							color: #fff;
 							font-family: 'Arial', sans-serif;
-							font-size: em(10);
+							font-size: em(11);
 						}
 					}
 				}
@@ -675,8 +750,13 @@ $navColor: #dde1ea;
 
 			li {
 				display: inline-block;
-				padding: em(7);
+				padding: em(8);
+				margin-right: em(3);
 				cursor: pointer;
+				font-size: em(14);
+				background-color: #f9f9f9;
+				transition: background-color 0.3s ease-out;
+				-webkit-transition: background-color 0.3s ease-out;
 				
 				.ctg__icon {
 					display: block;
@@ -702,7 +782,8 @@ $navColor: #dde1ea;
 
 				&.active {
 					background-color: #536895;
-
+					transition: background-color 0.3s ease-out;
+					-webkit-transition: background-color 0.3s ease-out;
 					.ctg__title {
 						color: #fff;
 						font-family: 'Arial', sans-serif;
@@ -710,6 +791,12 @@ $navColor: #dde1ea;
 					}
 				}
 				
+				&:hover {
+					background-color: #536895;
+					transition: background-color 0.3s ease-out;
+					-webkit-transition: background-color 0.3s ease-out;
+				}
+
 				.ctg__icon {
 					display: block;
 					margin: 0 auto;
