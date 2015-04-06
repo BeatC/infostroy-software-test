@@ -14,6 +14,7 @@ gulp.task('server', function() {
 
 gulp.task('styles', function () {
 	gulp.src('./app/src/styles/*.scss')
+		.pipe(concat('bundle.scss'))
 		.pipe(sass())
 		.pipe(concat('main.css'))
 		.pipe(gulp.dest('./app/dist/css'))

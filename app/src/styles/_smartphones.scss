@@ -1,0 +1,37 @@
+@media (max-width: em(500)) {
+	body {
+		width: 100%;
+		overflow-y: hidden;
+		.dashboard {
+			width: 100%;
+			margin-right: 0;
+		}
+	}
+}
+
+@media (min-width: em(1500)) {
+
+	body {
+		width: 100vw;
+		overflow: hidden;
+	}
+
+	.dashboard__ctg-content {
+		box-sizing: border-box;
+		width: 100%;
+		padding-right: em(235) !important;
+	}
+}
+
+@media (max-width: em(380)) {
+	.container__compose {
+		padding-left: em(10) !important;
+		padding-right: em(10) !important;
+
+		.compose__attachments {
+			li {
+				margin: em(5) !important;
+			}
+		}
+	}
+}

@@ -26,9 +26,10 @@ body {
 	display: inline-block;
 	margin-right: em(-5);
 	position: absolute;
+	z-index: 100;
 	height: 100%;
 	top: 0;
-	left: 0;
+	left: -220px;
 	vertical-align: top;
 	background-color: $backColor;
 
@@ -120,6 +121,8 @@ body {
 				background-color: $backColor;
 				border-top: em(1) solid #fff;
 				border-bottom: em(1) solid $borderColor;
+				transition: background-color 0.3s ease-out;
+				-webkit-transition: background-color 0.3s ease-out;
 
 				&:hover {
 					background-color: $hoverColor;
@@ -190,10 +193,11 @@ body {
 
 .dashboard {
 	display: inline-block;
+	position: relative;
 	box-sizing: border-box;
 	vertical-align: top;
 	width: 100%;
-	padding-left: em(220);
+	
 	.dashboard__nav {
 		box-sizing: border-box;
 		height: em(50);
@@ -295,7 +299,6 @@ body {
 		padding: em(7) em(14);
 		padding-right: em(12);
 		display: inline-block;
-		margin-right: em(221);
 
 		.content__title {
 
@@ -321,8 +324,8 @@ body {
 			}
 
 			.title__contacts {
-				display: none;
-				opacity: 0;
+				display: inline-block;
+				opacity: 1;
 				float: right;
 				width: 24px;
 				height: 23px;
@@ -365,6 +368,30 @@ body {
 			.container__settings {
 				padding: em(7) em(14) em(14);
 				border-bottom: em(1) solid #e9e9e9;
+				
+				.settings__show {
+					display: none;
+
+					button {
+						display: block;
+						margin: em(3) auto 0;
+						padding: em(5) em(20) em(10);
+						border: em(2) solid #a5afc3;
+						border-radius: em(3);
+						font-family: 'Arial', sans-serif;
+						font-size: em(12);
+						color: #fff;
+						background-color: #a9b3ca;
+						transition: background-color 0.3s ease-out;
+						-webkit-transition: background-color 0.3s ease-out;
+
+						&:hover {
+							background-color: #536895;
+							transition: background-color 0.3s ease-in;
+							-webkit-transition: background-color 0.3s ease-in;
+						}
+					}
+				}
 
 				.settings__group {
 					display: inline-block;
@@ -576,7 +603,7 @@ body {
 	.dashboard__contacts {
 		display: inline-block;
 		position: absolute;
-		right: 0;
+		right: -221px;
 		top: em(78);
 		width: em(220);
 		vertical-align: top;
@@ -585,6 +612,7 @@ body {
 		.contacts__search {
 			padding: em(8) em(9) em(10);
 			border-bottom: em(1) solid #e9e9e9;
+			background: #fff;
 
 			.search__table {
 				display: table;
@@ -634,7 +662,7 @@ body {
 					vertical-align: top;
 					box-sizing: border-box;
 					font-size: em(12);
-					height: em(41);
+					height: em(39);
 					border: em(2) solid $borderColor;
 					border-left: none;
 
@@ -643,10 +671,10 @@ body {
 					background: #fff;
 					outline: none;
 					
-					padding: em(10) em(6) em(11);
+					padding: em(10) em(6) em(9);
 					position: relative;
 					left: em(9);
-					top: em(1);
+					top: em(2);
 
 					span {
 						display: block;
@@ -667,6 +695,7 @@ body {
 			padding: 0;
 			width: 100%;
 			overflow-y: scroll;
+			background: #fff;
 
 			li {
 				background-color: #fff;
