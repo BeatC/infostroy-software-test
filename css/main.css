@@ -114,7 +114,8 @@ body {
           .sidebar .sidebar__categories ul li a .ctg__img {
             display: table-cell;
             width: 2.5em;
-            height: 2.5em; }
+            height: 2.5em;
+            border-radius: 1.875em; }
           .sidebar .sidebar__categories ul li a .ctg__title {
             padding-left: 0.375em;
             display: table-cell;
@@ -160,25 +161,42 @@ body {
     .dashboard .dashboard__nav .nav__quicksettings {
       display: inline-block;
       float: right;
+      position: relative;
       font-family: 'Arial', sans-serif; }
       .dashboard .dashboard__nav .nav__quicksettings ul {
         list-style: none;
-        margin: 0;
+        margin-top: 0.1875em;
         padding: 0;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none; }
         .dashboard .dashboard__nav .nav__quicksettings ul li {
-          margin: 0 0.75em;
+          margin: 0;
           display: inline-block; }
         .dashboard .dashboard__nav .nav__quicksettings ul .list__language, .dashboard .dashboard__nav .nav__quicksettings ul .list__user {
           color: #dde1ea;
           font-size: 0.8125em;
           font-weight: 700;
           cursor: pointer; }
+        .dashboard .dashboard__nav .nav__quicksettings ul .list__language {
+          width: 2.25em;
+          position: relative;
+          right: 0.625em; }
+        .dashboard .dashboard__nav .nav__quicksettings ul .list__language span {
+          display: block;
+          width: 100%;
+          padding-right: 0.5em;
+          background: url(../img/header_more.png) no-repeat;
+          background-position: 80% 0.5em; }
+        .dashboard .dashboard__nav .nav__quicksettings ul .list__user {
+          padding-right: 0.9375em;
+          background: url(../img/header_more.png) no-repeat;
+          background-position: 100% 0.5em; }
         .dashboard .dashboard__nav .nav__quicksettings ul .list__messages {
-          cursor: pointer; }
+          cursor: pointer;
+          position: relative;
+          left: 0.5em; }
           .dashboard .dashboard__nav .nav__quicksettings ul .list__messages .messages__number {
             font-size: 0.625em;
             font-style: italic;
@@ -618,18 +636,20 @@ body {
           width: 21px;
           height: 20px;
           background: url('../img/contacts.png'); }
-        .dashboard .dashboard__contacts .contacts__ctg li.active {
+        .dashboard .dashboard__contacts .contacts__ctg li.active, .dashboard .dashboard__contacts .contacts__ctg li:hover {
           background-color: #536895;
           transition: background-color 0.3s ease-out;
           -webkit-transition: background-color 0.3s ease-out; }
-          .dashboard .dashboard__contacts .contacts__ctg li.active .ctg__title {
+          .dashboard .dashboard__contacts .contacts__ctg li.active .ctg__title, .dashboard .dashboard__contacts .contacts__ctg li:hover .ctg__title {
             color: #fff;
             font-family: 'Arial', sans-serif;
             font-size: 0.75em; }
-        .dashboard .dashboard__contacts .contacts__ctg li:hover {
-          background-color: #536895;
-          transition: background-color 0.3s ease-out;
-          -webkit-transition: background-color 0.3s ease-out; }
+          .dashboard .dashboard__contacts .contacts__ctg li.active .mdrn, .dashboard .dashboard__contacts .contacts__ctg li:hover .mdrn {
+            background: url('../img/mdrn_active.png'); }
+          .dashboard .dashboard__contacts .contacts__ctg li.active .staff, .dashboard .dashboard__contacts .contacts__ctg li:hover .staff {
+            background: url('../img/staff_active.png'); }
+          .dashboard .dashboard__contacts .contacts__ctg li.active .contacts, .dashboard .dashboard__contacts .contacts__ctg li:hover .contacts {
+            background: url('../img/contacts_active.png'); }
         .dashboard .dashboard__contacts .contacts__ctg li .ctg__icon {
           display: block;
           margin: 0 auto; }
