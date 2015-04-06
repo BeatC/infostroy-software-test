@@ -163,6 +163,7 @@ body {
 						display: table-cell;
 						width: em(40);
 						height: em(40);
+						border-radius: em(30);
 					}
 
 					.ctg__title {
@@ -219,16 +220,17 @@ body {
 		.nav__quicksettings {
 			display: inline-block;
 			float: right;
+			position: relative;
 			font-family: 'Arial', sans-serif;
 			
 			ul {
 				list-style: none;
-				margin: 0;
+				margin-top: em(3);
 				padding: 0;
 				@include user-select(none);
 
 				li {
-					margin: 0 em(12);
+					margin: 0;
 					display: inline-block;
 				}
 
@@ -239,8 +241,30 @@ body {
 					cursor: pointer;
 				}
 
+				.list__language {
+					width: em(36);
+					position: relative;
+					right: em(10);
+				}
+
+				.list__language span {
+					display: block;
+					width: 100%;
+					padding-right: em(8);
+					background: url(../img/header_more.png) no-repeat;
+					background-position: 80% em(8);
+				}
+
+				.list__user {
+					padding-right: em(15);
+					background: url(../img/header_more.png) no-repeat;
+					background-position: 100% em(8);
+				}
+
 				.list__messages {
 					cursor: pointer;
+					position: relative;
+					left: em(8);
 					.messages__number {
 						font-size: em(10);
 						font-style: italic;
@@ -821,7 +845,7 @@ body {
 					background: url('../img/contacts.png');
 				}
 
-				&.active {
+				&.active, &:hover {
 					background-color: #536895;
 					transition: background-color 0.3s ease-out;
 					-webkit-transition: background-color 0.3s ease-out;
@@ -830,14 +854,20 @@ body {
 						font-family: 'Arial', sans-serif;
 						font-size: em(12);
 					}
+
+					.mdrn {
+						background: url('../img/mdrn_active.png');
+					}
+
+					.staff {
+						background: url('../img/staff_active.png');
+					}
+
+					.contacts {
+						background: url('../img/contacts_active.png');
+					}
 				}
 				
-				&:hover {
-					background-color: #536895;
-					transition: background-color 0.3s ease-out;
-					-webkit-transition: background-color 0.3s ease-out;
-				}
-
 				.ctg__icon {
 					display: block;
 					margin: 0 auto;

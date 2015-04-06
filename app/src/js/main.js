@@ -137,13 +137,32 @@
 		}
 	});
 
+	$('.show__btn').click(function () {
+		var showBtn = $('.show__btn');
+		if(showBtn.text() === 'Show Settings') {
+			$('.settings__group').show(function() {
+				adapt();
+				showBtn.text('Hide Settings');
+			});
+		} else {
+			$('.settings__group').hide(function() {
+				adapt();
+				showBtn.text('Show Settings');
+			});
+		}
+	});
+
 	// adapting height to the window resolution
 	adapt = function () {
 		var offsetSidebar = parseInt($('.sidebar').css('left').slice(0,-2)), 
 		    offsetContacts = parseInt($('.dashboard__contacts').css('left').slice(0,-2));
 		// for messages
 		$('.container__messages').height($(window).height() - $('.dashboard').height() + $('.container__messages').height());
-		$('.dashboard__ctg-content').width($(window).width() - $('.sidebar').width() - $('.dashboard__contacts').width() - 26 - offsetSidebar + offsetContacts);
+		if($(window).width() > 1500) {
+			$('.dashboard__ctg-content').width($(window).width() - $('.sidebar').width() - offsetSidebar - 26);
+		} else {
+			$('.dashboard__ctg-content').width($(window).width() - $('.sidebar').width() - $('.dashboard__contacts').width() - 26 - offsetSidebar + offsetContacts);
+		}
 		// for contacts
 		$('.contacts__list').height($(window).height() - headerHeight - $('.contacts__ctg').height() - $('.contacts__search-wrapper').height());
 	};
@@ -173,11 +192,11 @@
 				marginRight: 10
 			});
 		}
+		adapt();
 	};
 
 
 	$(window).resize(function () {
-		var width;
 		if($(window).height() >= 600) {
 			adapt();
 		}
